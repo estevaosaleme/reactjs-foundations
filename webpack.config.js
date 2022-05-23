@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 module.exports = {
   // webpack will take the files from ./src/index
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -36,10 +37,18 @@ module.exports = {
 },
 devServer: {
   historyApiFallback: true,
+  host: '0.0.0.0',
+  port: 3330,
+  public: 'http://0.0.0.0:' + process.env.PUBLIC_PORT,
+  disableHostCheck: true,
 },
 plugins: [
   new HtmlWebpackPlugin({
     template: './public/index.html'
+  }),
+  new Dotenv({
+    allowEmptyValues: true,
+    systemvars: true
   })
  ]
 };
