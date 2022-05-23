@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-pocgke-frontend
+  labels:
+    app: pod-pocgke-frontend
+spec:
+  containers:
+    - name: pocgke-frontend-container
+      image: localhost:5000/reactjs-foundations:latest
+      ports:
+        - containerPort: 3330
+      envFrom:
+        - configMapRef:
+            name: configmap-pocgke-frontend

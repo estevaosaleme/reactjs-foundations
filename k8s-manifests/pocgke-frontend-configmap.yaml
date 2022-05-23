@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-pocgke-frontend
+data:
+  API_ADDRESS: "http://localhost:30333"
+  PUBLIC_PORT: "30000"
